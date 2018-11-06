@@ -35,7 +35,7 @@ public static void init(FMLInitializationEvent event) {
 
 
 @EventHandler
-public static void Postinit(FMLPostInitializationEvent event) {
+public static void PostInit(FMLPostInitializationEvent event) {
 	
 }
 
