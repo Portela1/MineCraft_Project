@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "PPP",
+        "PPP",
+        "PPP"
+    ],
+    
+    "key":
+    {
+        "P":
+        {
+            "item": "ffam:plutonium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "ffam:plutonium_block",
+        "count": 1
+    }
+}
