@@ -1,5 +1,6 @@
 package com.minecraft_megawallsrm.freeforall;
 
+import com.minecraft_megawallsrm.freeforall.init.ModRecipies;
 import com.minecraft_megawallsrm.freeforall.proxy.CommonProxy;
 import com.minecraft_megawallsrm.freeforall.util.Reference;
 
@@ -30,7 +31,7 @@ public static void PreInit(FMLPreInitializationEvent event) {
 
 @EventHandler
 public static void init(FMLInitializationEvent event) {
-	
+	ModRecipies.init();
 }
 
 
