@@ -1,1 +1,8 @@
+
+//Items
 item.plutonium.name=Plutonium
+
+
+//Blocks
+tile.plutonium_block.name = Block of Plutonium
+tile.plutonium_ore.name=Plutonium Ore
