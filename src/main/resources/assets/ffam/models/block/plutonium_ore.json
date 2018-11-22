@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "ffam:blocks/plutonium_ore"
+   }
+}

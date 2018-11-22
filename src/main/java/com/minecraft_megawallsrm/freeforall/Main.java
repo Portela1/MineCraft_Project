@@ -3,6 +3,7 @@ package com.minecraft_megawallsrm.freeforall;
 import com.minecraft_megawallsrm.freeforall.init.ModRecipies;
 import com.minecraft_megawallsrm.freeforall.proxy.CommonProxy;
 import com.minecraft_megawallsrm.freeforall.util.Reference;
+import com.minecraft_megawallsrm.freeforall.world.ModWorldGen;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class Main {
@@ -24,7 +26,7 @@ public static CommonProxy proxy;
 
 @EventHandler
 public static void PreInit(FMLPreInitializationEvent event) {
-	
+	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
 }
 
 
