@@ -6,3 +6,18 @@ item.plutonium.name=Plutonium
 //Blocks
 tile.plutonium_block.name = Block of Plutonium
 tile.plutonium_ore.name=Plutonium Ore
+
+//Tools
+item.plutonium_sword.name=Plutonium Sword
+item.plutonium_spade.name=Plutonium Spade
+item.plutonium_pickaxe.name=Plutonium Pickaxe
+item.plutonium_hoe.name=Plutonium Hoe
+item.plutonium_axe.name=Plutonium Axe
+
+
+//armor
+item.plutonium_helmet.name=Plutonium Helmet
+item.plutonium_chestplate.name=Plutonium Chestplate
+item.plutonium_leggings.name=Plutonium Leggings
+item.plutonium_boots.name=Plutonium Boots
+
