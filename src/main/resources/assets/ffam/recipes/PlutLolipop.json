@@ -1,0 +1,22 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "ffam:plutonium"
+    },
+    
+    {
+      "item": "minecraft:stick"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "ffam:plutonium_lolipop",
+        "count": 1
+    }
+}

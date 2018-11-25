@@ -38,6 +38,7 @@ public class ModItems {
 	
 	// items
 	public static final Item PLUTONIUM = new ItemBase("plutonium");
+	public static final Item PLUTONIUM_LOLIPOP = new ItemBase("plutonium_lolipop");
 	
 	//Tools
 	public static final ItemSword PLUTONIUM_SWORD = new ToolSword("plutonium_sword", MATERIAL_PLUTONIUM );
