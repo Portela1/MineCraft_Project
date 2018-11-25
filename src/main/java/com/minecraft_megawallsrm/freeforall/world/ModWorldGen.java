@@ -27,7 +27,7 @@ public class ModWorldGen implements IWorldGenerator {
 	private void generateOre(IBlockState ore, World world, Random random, int x, int z,int miny,int maxy, int size, int chances) {
 		int deltay = maxy - miny;
 		for(int i = 0; i< chances; i++) {
-			BlockPos pos = new BlockPos(x+random.nextInt(16),miny + random.nextInt(deltay), z+random.nextInt(16));
+			BlockPos pos = new BlockPos(x+random.nextInt(16),miny + random.nextInt(deltay), z+random.nextInt(20));
 			WorldGenMinable generator = new WorldGenMinable(ore,size);
 			generator.generate(world, random, pos);
 		}

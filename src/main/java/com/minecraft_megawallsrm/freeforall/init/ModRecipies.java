@@ -7,8 +7,7 @@ public class ModRecipies
 {
 
 	public static void init() {
-		GameRegistry.addSmelting(ModItems.PLUTONIUM, new ItemStack(ModBlocks.PLUTONIUM_BLOCK,1), 2.0f);
-		GameRegistry.addSmelting(ModBlocks.PLUTONIUM_BLOCK,new ItemStack(ModItems.PLUTONIUM,9),2.0f);
+		GameRegistry.addSmelting(ModBlocks.PLUTONIUM_ORE,new ItemStack(ModItems.PLUTONIUM,1),2.0f);
 	}
 	
 	
