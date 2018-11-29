@@ -1,4 +1,4 @@
-package com.minecraft_megawallsrm.freeforall.util.handlers;
+ package com.minecraft_megawallsrm.freeforall.util.handlers;
 
 import com.minecraft_megawallsrm.freeforall.init.ModBlocks;
 //import com.minecraft_megawallsrm.freeforall.init.ModBlocks;
@@ -6,10 +6,12 @@ import com.minecraft_megawallsrm.freeforall.init.ModItems;
 import com.minecraft_megawallsrm.freeforall.util.IHasModel;
 
 import net.minecraft.block.Block;
+import net.minecraft.command.server.CommandTeleport;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @EventBusSubscriber
@@ -47,6 +49,19 @@ public class RegistryHandler {
 		
 		
 	}
+	
+	
+	
+	
+	
+
+	public static void serverRegisties(FMLServerStartingEvent event) {
+		event.registerServerCommand(new CommandTeleport());
+		
+	}
+
+	
+	
 	
 	
 	

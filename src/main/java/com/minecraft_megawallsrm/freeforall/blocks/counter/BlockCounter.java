@@ -3,6 +3,7 @@ package com.minecraft_megawallsrm.freeforall.blocks.counter;
 import javax.annotation.Nullable;
 
 import com.minecraft_megawallsrm.freeforall.blocks.BlockTileEntity;
+import com.minecraft_megawallsrm.freeforall.comands.util.Teleport;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -27,7 +28,10 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> {
 		if (!world.isRemote) {
 			TileEntityCounter tile = getTileEntity(world, pos);
 			if (side == EnumFacing.DOWN) {
-				tile.decrementCount();
+				tile.decrementCount();}
+			else if (side == EnumFacing.NORTH || side == EnumFacing.SOUTH || side == EnumFacing.EAST|| side == EnumFacing.WEST) {
+				Teleport.teleportToDemension(player, player.getPosition().getX()+20, player.getPosition().getY()+20, player.getPosition().getZ()+20);
+			
 			} else if (side == EnumFacing.UP) {
 				tile.incrementCount();
 			}

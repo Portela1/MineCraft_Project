@@ -3,6 +3,7 @@ package com.minecraft_megawallsrm.freeforall;
 import com.minecraft_megawallsrm.freeforall.init.ModRecipies;
 import com.minecraft_megawallsrm.freeforall.proxy.CommonProxy;
 import com.minecraft_megawallsrm.freeforall.util.Reference;
+import com.minecraft_megawallsrm.freeforall.util.handlers.RegistryHandler;
 import com.minecraft_megawallsrm.freeforall.world.ModWorldGen;
 
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
@@ -37,10 +39,10 @@ public static void init(FMLInitializationEvent event) {
 }
 
 
-@EventHandler
-public static void PostInit(FMLPostInitializationEvent event) {
-	
-}
 
+@EventHandler
+public static void ServerInit(FMLServerStartingEvent event) {
+	RegistryHandler.serverRegisties(event);
+}
 
 }
