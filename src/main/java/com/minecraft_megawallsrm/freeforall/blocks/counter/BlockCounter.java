@@ -52,15 +52,18 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 		int counter = 1;
 	while(counter != rad) {
 		for(int x = start.getX()-counter; x<=start.getX()+counter;x++)
-			for(int y = start.getY()-counter; y <= start.getY()+counter;y++)
 				for(int z = start.getZ()-counter; z <= start.getZ()+counter;z++) {
-					BlockPos position = new BlockPos(x,y,z);
-					if((position.getX() - start.getX() < 1 && position.getY()-start.getY()<1 && position.getZ()-start.getZ()<1)) {
+					BlockPos position = new BlockPos(x,start.getY(),z);
+					if((position.getX() - start.getX() < 1  && position.getZ()-start.getZ()<1)) { 
 						continue;
 					}
 					
 					if (world.getTileEntity(position) instanceof TileEntityCounter){
+						TileEntityCounter otro = (TileEntityCounter) world.getTileEntity(position);
+						TileEntityCounter mio = (TileEntityCounter) world.getTileEntity(start);
+						if( mio.getCount() == otro.getCount()) {
 						return position;
+						}
 					}	
 				}
 		counter++;
