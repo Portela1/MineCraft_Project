@@ -36,7 +36,7 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 			if (side == EnumFacing.DOWN) {
 				tile.decrementCount();}
 			else if (side == EnumFacing.NORTH || side == EnumFacing.SOUTH || side == EnumFacing.EAST|| side == EnumFacing.WEST) {
-				BlockPos closest = closestblock(world,pos,8);
+				BlockPos closest = closestblock(world,pos,64);
 				Teleport.teleportToDemension(player, closest.getX(), closest.getY(),closest.getZ());
 			
 			} else if (side == EnumFacing.UP) {
@@ -49,8 +49,8 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 	
 	
 	static BlockPos closestblock(World world, BlockPos start, int rad){
-		int counter = 0;
-	while(counter !=rad ) {
+		int counter = 1;
+	while(counter != rad) {
 		for(int x = start.getX()-counter; x<=start.getX()+counter;x++)
 			for(int y = start.getY()-counter; y <= start.getY()+counter;y++)
 				for(int z = start.getZ()-counter; z <= start.getZ()+counter;z++) {
