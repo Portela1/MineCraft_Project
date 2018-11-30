@@ -36,7 +36,7 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 			if (side == EnumFacing.DOWN) {
 				tile.decrementCount();}
 			else if (side == EnumFacing.NORTH || side == EnumFacing.SOUTH || side == EnumFacing.EAST|| side == EnumFacing.WEST) {
-				BlockPos closest = closestblock(world,pos,64);
+				BlockPos closest = closestblock(world,pos,32);
 				Teleport.teleportToDemension(player, closest.getX(), closest.getY(),closest.getZ());
 			
 			} else if (side == EnumFacing.UP) {
@@ -50,25 +50,46 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 	
 	static BlockPos closestblock(World world, BlockPos start, int rad){
 		int counter = 1;
+		ArrayList<BlockPos> InRadiusAndSameId = new ArrayList<BlockPos>();
+		BlockPos result = new BlockPos(start.getX(),start.getY(),start.getZ());
 	while(counter != rad) {
-		for(int x = start.getX()-counter; x<=start.getX()+counter;x++)
-				for(int z = start.getZ()-counter; z <= start.getZ()+counter;z++) {
-					BlockPos position = new BlockPos(x,start.getY(),z);
-					if((position.getX() - start.getX() < 1  && position.getZ()-start.getZ()<1)) { 
+		for(int x = start.getX() - counter; x <= start.getX() + counter; x++)
+			for(int y = start.getY() - counter; y <= start.getY() + counter; y++)
+				for(int z = start.getZ() - counter; z <= start.getZ() + counter;z++) {
+					BlockPos position = new BlockPos(x,y,z);
+					if((position.getX() - start.getX() < 1 && position.getY() - start.getY() < 1 && position.getZ() - start.getZ()<1)) { 
 						continue;
 					}
-					
 					if (world.getTileEntity(position) instanceof TileEntityCounter){
-						TileEntityCounter otro = (TileEntityCounter) world.getTileEntity(position);
-						TileEntityCounter mio = (TileEntityCounter) world.getTileEntity(start);
-						if( mio.getCount() == otro.getCount()) {
-						return position;
+						if(world.getTileEntity(position).getTileData().getId() == world.getTileEntity(start).getTileData().getId()) {
+							InRadiusAndSameId.add(position);
 						}
+						else {
+							continue;
+						}
+						
 					}	
 				}
 		counter++;
 	}
-	return new BlockPos(start.getX(),start.getY(),start.getZ());
+	
+	int xds = (InRadiusAndSameId.get(0).getX() - start.getX()) * (InRadiusAndSameId.get(0).getX() - start.getX());
+	int yds = (InRadiusAndSameId.get(0).getY() - start.getY()) * (InRadiusAndSameId.get(0).getY() - start.getY());
+	int zds = (InRadiusAndSameId.get(0).getZ() - start.getZ()) * (InRadiusAndSameId.get(0).getZ() - start.getZ());
+	int min = (int) Math.sqrt(xds+yds+zds);
+	int vec;
+	for(BlockPos i : InRadiusAndSameId) {
+		xds = (i.getX() - start.getX()) * (i.getX() - start.getX());
+		yds = (i.getY() - start.getY()) * (i.getY() - start.getY());
+		zds = (i.getZ() - start.getZ()) * (i.getZ() - start.getZ());
+		vec = (int) Math.sqrt(xds+yds+zds);
+		if(vec<=min) {
+			min = vec;
+			result = new BlockPos(i.getX(),i.getY(),i.getZ());
+		}
+	}
+	
+	return result;
 		
 	}
 	
