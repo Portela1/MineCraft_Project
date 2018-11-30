@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
-public class TileEntityCounter extends TileEntity implements ITickable, IInventory {
+public class TileEntityTeleporter extends TileEntity implements ITickable, IInventory {
 
 	private int count;
 	private ItemStack[] inventory;

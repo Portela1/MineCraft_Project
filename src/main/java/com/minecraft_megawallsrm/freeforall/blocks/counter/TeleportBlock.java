@@ -23,16 +23,16 @@ import net.minecraft.world.World;
 
 
 
-public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements IHasModel{
+public class TeleportBlock extends BlockTileEntity<TileEntityTeleporter> implements IHasModel{
 
-	public BlockCounter() {
-		super(Material.DRAGON_EGG, "counter"); 
+	public TeleportBlock(String name) {
+		super("teleport_block", Material.DRAGON_EGG); 
 	}
 	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {
-			TileEntityCounter tile = getTileEntity(world, pos);
+			TileEntityTeleporter tile = getTileEntity(world, pos);
 			if (side == EnumFacing.DOWN) {
 				tile.decrementCount();}
 			else if (side == EnumFacing.NORTH || side == EnumFacing.SOUTH || side == EnumFacing.EAST|| side == EnumFacing.WEST) {
@@ -60,9 +60,9 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 					if((position.getX() - start.getX() < 1 && position.getY() - start.getY() < 1 && position.getZ() - start.getZ()<1)) { 
 						continue;
 					}
-					if (world.getTileEntity(position) instanceof TileEntityCounter){
-						TileEntityCounter otro = (TileEntityCounter) world.getTileEntity(position);
-						TileEntityCounter mio = (TileEntityCounter) world.getTileEntity(start);
+					if (world.getTileEntity(position) instanceof TileEntityTeleporter){
+						TileEntityTeleporter otro = (TileEntityTeleporter) world.getTileEntity(position);
+						TileEntityTeleporter mio = (TileEntityTeleporter) world.getTileEntity(start);
 						if( mio.getCount() == otro.getCount()) {
 							InRadiusAndSameId.add(position);
 						}
@@ -93,14 +93,14 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 	}
 	
 	@Override
-	public Class<TileEntityCounter> getTileEntityClass() {
-		return TileEntityCounter.class;
+	public Class<TileEntityTeleporter> getTileEntityClass() {
+		return TileEntityTeleporter.class;
 	}
 	
 	@Nullable
 	@Override
-	public TileEntityCounter createTileEntity(World world, IBlockState state) {
-		return new TileEntityCounter();
+	public TileEntityTeleporter createTileEntity(World world, IBlockState state) {
+		return new TileEntityTeleporter();
 	}
 
 }

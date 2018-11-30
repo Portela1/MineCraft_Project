@@ -26,7 +26,7 @@ public class PlutoniumOre extends BlockBase {
 	public int quantityDropped(Random rand) {
 		int max = 4;
 		int min = 1;
-		return rand.nextInt(max)+ min;
+		return rand.nextInt(max) + min;
 	}
 	
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.minecraft_megawallsrm.freeforall.blocks.BlockBase;
 import com.minecraft_megawallsrm.freeforall.blocks.PlutoniumOre;
-import com.minecraft_megawallsrm.freeforall.blocks.counter.BlockCounter;
+import com.minecraft_megawallsrm.freeforall.blocks.counter.TeleportBlock;
 import com.minecraft_megawallsrm.freeforall.util.IHasModel;
 
 import net.minecraft.block.Block;
@@ -22,22 +22,22 @@ public class ModBlocks implements IHasModel{
 	public static final Block PLUTONIUM_ORE = new PlutoniumOre("plutonium_ore",Material.ROCK);
 	
 	
-	public static BlockCounter counter = new BlockCounter();
+	public static TeleportBlock TELEPORT_BLOCK = new TeleportBlock("teleport_block");
 	
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				// ...
-				counter
+				TELEPORT_BLOCK
 		);
 	
-		GameRegistry.registerTileEntity(counter.getTileEntityClass(), counter.getRegistryName().toString());
+		GameRegistry.registerTileEntity(TELEPORT_BLOCK.getTileEntityClass(), TELEPORT_BLOCK.getRegistryName().toString());
 	}
 
 	@Override
 	public void registerModels() {
 		// TODO Auto-generated method stub
 		
-		counter.registerModels();
+		TELEPORT_BLOCK.registerModels();
 	}
 	
 

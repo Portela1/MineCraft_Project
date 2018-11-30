@@ -1,11 +1,12 @@
 
 //Items
 item.plutonium.name=Plutonium
-
+item.plutonium_lolipop=Plutonium Lolipop
 
 //Blocks
-tile.plutonium_block.name = Block of Plutonium
+tile.plutonium_block.name=Block of Plutonium
 tile.plutonium_ore.name=Plutonium Ore
+tile.teleporter_block.name=Teleport
 
 //Tools
 item.plutonium_sword.name=Plutonium Sword
