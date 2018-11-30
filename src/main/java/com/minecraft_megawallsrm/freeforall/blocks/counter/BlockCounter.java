@@ -61,11 +61,10 @@ public class BlockCounter extends BlockTileEntity<TileEntityCounter> implements 
 						continue;
 					}
 					if (world.getTileEntity(position) instanceof TileEntityCounter){
-						if(world.getTileEntity(position).getTileData().getId() == world.getTileEntity(start).getTileData().getId()) {
+						TileEntityCounter otro = (TileEntityCounter) world.getTileEntity(position);
+						TileEntityCounter mio = (TileEntityCounter) world.getTileEntity(start);
+						if( mio.getCount() == otro.getCount()) {
 							InRadiusAndSameId.add(position);
-						}
-						else {
-							continue;
 						}
 						
 					}	
